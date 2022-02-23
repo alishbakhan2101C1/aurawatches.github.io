@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="images/clock.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+  --default-color: #e71247;
+  --default-color2: #d64569;
+  --dark-color: #222;
+  --dark-color-alt: #3c4858;
+  --grey-color: var(--default-color2);
+  --grey-color-alt: #8492a6;
+  --yellow: #ffcc00;
+  --white: #fff;
+}
+
+/* ======== Base ========== */
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  font-family: "Dosis", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: var(--white);
+}
+
+li,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+h2,
+h3,
+h4 {
+  font-weight: 600;
+}
+
+.container {
+  max-width: 114rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 992px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+/* =========== Header ============ */
+/* yeh main picture hai */
+.header {
+  min-height: 100vh;
+  /*background: linear-gradient(to top,
+      rgba(141, 132, 132, 0.5),
+      rgba(151, 115, 115, 0.6)),
+    url("") center/cover no-repeat fixed;*/
+  position: relative;
+  z-index: 100;
+}
+
+.header::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*background-color: rgba(0, 0, 0, 0.5);*/
+  z-index: -1;
+}
+
+/* =========== Header ============ */
+
+.navigation {
+  position: relative;
+  padding: 1.5rem 0;
+  z-index: 100;
+}
+
+.fix__nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav__center .nav__hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.nav__menu .menu__top {
+  display: none;
+}
+
+.nav__center {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+}
+
+.nav__header .nav__logo h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--grey-color-alt);
+}
+
+.fix__nav .nav__logo h1 {
+  color: var(--dark-color);
+}
+
+.nav__header .nav__logo h1 span {
+  color: var(--default-color);
+}
+
+.nav__icons svg {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.nav__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__menu .nav__list {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+.nav__list .nav__item:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.nav__item .nav__link:link,
+.nav__item .nav__link:visited {
+  display: inline-block;
+  padding: 1rem;
+  color: var(--grey-color);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  transition: all 300ms ease-in-out;
+}
+
+.fix__nav .nav__item .nav__link:link,
+.fix__nav .nav__item .nav__link:visited {
+  color: var(--dark-color);
+}
+
+.nav__item .nav__link:hover {
+  color: var(--default-color);
+}
+
+.fix__nav .nav__item .nav__link:hover {
+  color: var(--default-color);
+}
+
+.nav__menu .nav__item:last-child .nav__link {
+  background-color: var(--default-color);
+  padding: 0.8rem 3rem;
+  border-radius: 10rem;
+  border: 1px solid var(--default-color);
+  transition: all 300ms ease-in-out;
+}
+
+.nav__menu .nav__item:last-child .nav__link:hover {
+  background-color: transparent;
+  color: var(--grey-color);
+}
+
+.fix__nav .nav__menu .nav__item:last-child .nav__link:hover {
+  color: var(--default-color);
+}
+
+.nav__icons {
+  display: flex;
+  align-items: center;
+}
+
+.nav__icons .icon__item {
+  color: var(--grey-color);
+  padding: 1rem;
+}
+
+.nav__icons .icon__item svg {
+  fill: var(--grey-color);
+}
+
+.fix__nav .nav__icons .icon__item svg {
+  fill: var(--dark-color);
+}
+
+.nav__icons .icon__item:last-child {
+  position: relative;
+  background-color: var(--grey-color-alt);
+  padding: 0.7rem 1rem;
+  border-radius: 5rem;
+}
+
+.nav__icons .icon__item:last-child span {
+  position: absolute;
+  background-color: var(--default-color);
+  display: inline-block;
+  top: -0.6rem;
+  right: -1rem;
+  border-radius: 50%;
+  padding: 0.1rem 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+/* =========== Navigation Media Query ============ */
+
+@media only screen and (max-width: 996px) {
+  .nav__icons {
+    display: none;
+  }
+
+  .nav__center {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navigation {
+    background-color: var(--white);
+  }
+  @media only screen and (max-width: 996px) {
+  .box {
+    margin-right: 60px;
+    font-size: -5px;
+  }
+}
+  .nav__center {
+    grid-template-columns: 1fr;
+  }
+
+  .nav__center .nav__hamburger {
+    display: block;
+  }
+
+  .nav__center .nav__hamburger svg {
+    width: 3rem;
+    height: 3rem;
+    fill: var(--dark-color);
+  }
+
+  .nav__center .nav__logo h1 {
+    color: var(--dark-color);
+  }
+
+  .nav__header .nav__logo h1 span {
+    color: var(--default-color);
+  }
+
+  .nav__center .nav__hamburger span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    left: -40rem;
+    height: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    background-color: var(--white);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav__menu .menu__top svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: var(--white);
+  }
+
+  .nav__menu .menu__top .close__toggle {
+    cursor: pointer;
+  }
+
+  .nav__menu .menu__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+    width: 100%;
+    background-color: var(--default-color);
+  }
+
+  .nav__menu .nav__list {
+    background-color: var(--white);
+    justify-content: start;
+    flex-direction: column;
+    width: 30rem;
+    padding: 0;
+  }
+
+  .nav__menu .nav__list .nav__item {
+    width: 100%;
+  }
+
+  .nav__item .nav__link:link,
+  .nav__item .nav__link:visited {
+    width: 100%;
+    display: block;
+    font-size: 1.8rem;
+    color: var(--dark-color);
+  }
+  .fix__nav .nav__item .nav__link:link,
+.fix__nav .nav__item .nav__link:visited {
+  color: var(--dark-color);
+}
+
+.nav__item .nav__link:hover {
+  color: var(--default-color);
+}
+
+.fix__nav .nav__item .nav__link:hover {
+  color: var(--default-color);
+}
+
+.nav__menu .nav__item:last-child .nav__link {
+  background-color: var(--default-color);
+  padding: 0.8rem 3rem;
+  border-radius: 10rem;
+  border: 1px solid var(--default-color);
+  transition: all 300ms ease-in-out;
+}
+
+.nav__menu .nav__item:last-child .nav__link:hover {
+  background-color: transparent;
+  color: var(--grey-color);
+}
+
+  .nav__list .nav__item .nav__link:last-child:link,
+  .nav__list .nav__item .nav__link:last-child:visited {
+    display: inline-block;
+    width: 50%;
+  }
+
+  .nav__list .nav__item .nav__link:last-child:hover {
+    color: var(--default-color);
+  }
+
+  .nav__item .nav__link:hover {
+    color: var(--default-color);
+  }
+
+  body.active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 70;
+  }
+}
+*{
+   margin: 0px;
+   
+}
+
+h1{
+ text-align: center;
+}
+p{
+ font-size: 55px;
+}
+
+header{
+
+font-family: Arial, Helvetica, sans-serif;
+font-size: 30px;
+padding: 20px;
+}
+
+main{
+      margin-left: 120px;
+        width: 100%;
+        margin-top: 40px;
+}
+.box{
+  font-size: 16px;
+ width: 20%;
+ float: left;
+ padding: 7px;
+ padding-left: 10px;  
+ display: block;
+
+}
+.box button{
+    position: relative;
+    font-weight: bold;
+    font-family: cursive;
+    background: var(--default-color2);
+    border-color: transparent;
+    color: seashell;
+}
+
+img{
+ width: 100%;
+    border-radius: 4px;
+
+}
+
+img:hover{
+  transform: scale(1.3,1.3);
+  transition: .3s transform;
+}
+
+  </style>
+  <title>Mens</title>
+</head>
+<body>
+  <header id="header" class="header">
+    <!-- Navigation -->
+    <div class="navigation">
+      <div class="container">
+        <nav class="nav__center">
+          <div class="nav__header">
+            <div class="nav__logo">
+              <h1 style="color: black;">AURA<span>WATCHES</span></h1>
+            </div>
+
+            <div class="nav__hamburger">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/></svg>
+
+              </span>
+            </div>
+          </div>
+
+          <div class="nav__menu">
+            <div class="menu__top">
+              <h1 class="nav__category">Aura<span></span></h1>
+              <div class="close__toggle">
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-cross"></use>
+                </svg>
+              </div>
+            </div>
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="index.html" class="nav__link scroll-link">HOME</a>
+              </li>
+
+              <li class="nav__item">
+                <a href="index.html" class="nav__link scroll-link">FEATURED</a>
+              </li>
+
+              <li class="nav__item">
+                <a style="color: rgb(230, 175, 175); font-size: 15px; margin-top: -3px; font-weight: 600;" href="page.html">MENS</a>
+              </li>
+
+              <li class="nav__items">
+                <a style="color: rgb(230, 175, 175); font-size: 15px; margin-top: -3px; font-weight: 600;" href="page2.html">WOMENS</a>
+              </li>
+
+              <li class="nav__item">
+                <a href="contact.html" class="nav__link">SIGN UP</a>
+              </li>
+
+            <li class="nav__item">
+              <a style="color: lightgray;" href="index.html" class="nav__link scroll-link">QUERIES</a>
+              </li>
+            </ul>
+
+            <!--ul class="nav__icons">
+              <a href="#" class="icon__item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 56c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m0-48C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 168c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80z"/></svg>
+
+              </a>
+
+              <!--a href="#" class="icon__item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M439.39 362.29c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71zM67.53 368c21.22-27.97 44.42-74.33 44.53-159.42 0-.2-.06-.38-.06-.58 0-61.86 50.14-112 112-112s112 50.14 112 112c0 .2-.06.38-.06.58.11 85.1 23.31 131.46 44.53 159.42H67.53zM224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64z"/></svg>
+
+              </a>
+
+              <!--a href="#" class="icon__item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M567.403 235.642L462.323 84.589A48 48 0 0 0 422.919 64H153.081a48 48 0 0 0-39.404 20.589L8.597 235.642A48.001 48.001 0 0 0 0 263.054V400c0 26.51 21.49 48 48 48h480c26.51 0 48-21.49 48-48V263.054c0-9.801-3-19.366-8.597-27.412zM153.081 112h269.838l77.913 112H75.168l77.913-112zM528 400H48V272h480v128zm-32-64c0 17.673-14.327 32-32 32s-32-14.327-32-32 14.327-32 32-32 32 14.327 32 32zm-96 0c0 17.673-14.327 32-32 32s-32-14.327-32-32 14.327-32 32-32 32 14.327 32 32z"/></svg>
+
+                <span></span>
+              </a>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <header>
+      <hr/>
+      </header>
+  <main>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.52.47 AM.jpeg"> <a class="text" style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a>
+      <br>Aura Ares a123 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.54.13 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Era b456 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.52.47 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Luxury c789 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 2.02.36 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Classy c100 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.53.50 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Glamour d231 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.52.47 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura style e423 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.53.50 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Luxury f312 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.53.31 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Ares g802 Mens Watch <br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.58.41 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Luxury h542 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.53.31 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Classy i723 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.52.47 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Glamour j390 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 2.00.16 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Ares a123 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.52.47 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Classy c100 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 2.00.16 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Glamour j390 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.53.50 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Eres h542 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 2.00.16 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Luxury f312 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.53.50 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Glamour d231 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.52.47 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Era b456 Mens Watch<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 1.58.41 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Lorem ipsum dolor sit amet.<br/></div>
+      <div class="box"><img src="images/WhatsApp Image 2021-05-25 at 2.02.36 AM.jpeg"><a style="background-color: #e71247; color: #fff; font-weight: bold;" href="#" download>
+        Buy Now<a style="background-color: #e71247; color: #fff; font-weight: bold; margin-left: 15px;" href="Price List.docx" download>
+          Price List
+      </a><br>Aura Luxury f312 Mens Watch<br/></div>
+
+  </main>
+</body>
+</html>

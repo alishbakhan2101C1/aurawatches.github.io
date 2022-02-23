@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="images/clock.png" type="image/png">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Glidejs -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+  //This is #PreLoader   
+    setTimeout(function(){
+      $('.loader_bg').fadeToggle();
+    }, 4000);
+  </script>
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .loader_bg{
+      position: fixed;
+      z-index: 999999;
+      background: black;
+      width: 100%;
+      height: 100%;
+    }
+    .loader{
+      border: 0 solid transparent;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      top: calc(50vh - 75px);
+      left: calc(50vw - 75px);
+    }
+    .loader:before, .loader:after{
+      content: '';
+      border: 1em solid red;
+      border-radius: 50%;
+      width: inherit;
+      height: inherit;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: loader 2s linear infinite;
+      opacity: 0;
+    }
+    .loader:before{
+      animation-delay: .5s;
+    }
+      @keyframes loader{
+        0%{
+          transform: scale(0);
+          opacity: 0;
+          }
+        50%{
+            opacity: 1;
+          }
+        100%{
+            transform: scale(1);
+            opacity: 0;
+          }
+        }
+  </style>
+  <title>AURA WATCH</title>
+</head>
+<body>
+  <div class="loader_bg">
+    <div class="loader"></div>
+  </div>
+  <!-- 
+        ========================
+        Header
+        ========================
+     -->
+  <header id="header" class="header">
+    <!-- Navigation -->
+    <div class="navigation">
+      <div class="container">
+        <nav class="nav__center">
+          <div class="nav__header">
+            <div class="nav__logo">
+              <h1>AURA<span>WATCHES</span></h1>
+            </div>
+
+            <div class="nav__hamburger">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/></svg>
+
+              </span>
+            </div>
+          </div>
+
+          <div class="nav__menu">
+            <div class="menu__top">
+              <h1 class="nav__category">Aura<span></span></h1>
+              <div class="close__toggle">
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-cross"></use>
+                </svg>
+              </div>
+            </div>
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a style="color: rgb(230, 175, 175);" href="#header" class="nav__link scroll-link">Home</a>
+              </li>
+
+              <li class="nav__item">
+                <a style="color: rgb(230, 175, 175);" href="#featured" class="nav__link scroll-link">Featured</a>
+              </li>
+
+              <li class="nav__item">
+                <a href="page.html">MENS</a>
+              </li>
+
+              <li class="nav__items">
+                <a href="page2.html">WOMENS</a>
+              </li>
+
+              <li class="nav__item">
+                <a style="color: rgb(230, 175, 175);" href="contact.html" target="_blank" class="nav__link">SIGN UP</a>
+              </li>
+
+              <li class="nav__item">
+                <a style="color: lightgray;" href="#newsletter" class="nav__link scroll-link">QUERIES</a>
+              </li>
+            </ul>
+
+            <!--ul class="nav__icons">
+              <a href="#" class="icon__item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 56c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m0-48C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 168c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80z"/></svg>
+
+              </a>
+
+              <!--a href="#" class="icon__item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M439.39 362.29c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71zM67.53 368c21.22-27.97 44.42-74.33 44.53-159.42 0-.2-.06-.38-.06-.58 0-61.86 50.14-112 112-112s112 50.14 112 112c0 .2-.06.38-.06.58.11 85.1 23.31 131.46 44.53 159.42H67.53zM224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64z"/></svg>
+
+              </a>
+
+              <!--a href="#" class="icon__item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M567.403 235.642L462.323 84.589A48 48 0 0 0 422.919 64H153.081a48 48 0 0 0-39.404 20.589L8.597 235.642A48.001 48.001 0 0 0 0 263.054V400c0 26.51 21.49 48 48 48h480c26.51 0 48-21.49 48-48V263.054c0-9.801-3-19.366-8.597-27.412zM153.081 112h269.838l77.913 112H75.168l77.913-112zM528 400H48V272h480v128zm-32-64c0 17.673-14.327 32-32 32s-32-14.327-32-32 14.327-32 32-32 32 14.327 32 32zm-96 0c0 17.673-14.327 32-32 32s-32-14.327-32-32 14.327-32 32-32 32 14.327 32 32z"/></svg>
+
+                <span></span>
+              </a>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero__content container">
+        <h1>
+          <span>Get <span class="color">50%</span> off your first Product
+            with</span>
+          <span>Aura<span class="color"></span> online shop</span>
+        </h1>
+        <a href="#" class="btn btn-hero">WELCOME</a>
+      </div>
+
+      <a href="#new__arrival" class="goto__next scroll-link">
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm-32-316v116h-67c-10.7 0-16 12.9-8.5 20.5l99 99c4.7 4.7 12.3 4.7 17 0l99-99c7.6-7.6 2.2-20.5-8.5-20.5h-67V140c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12z"/></svg>
+
+
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <!-- New Arrival -->
+    <section class="section new__arrival" id="new__arrival">
+      <div class="arrivals container">
+        <div class="title">
+          <h1 class="primary__title">New Arrival</h1>
+        </div>
+
+        <div class="arrival__center">
+          <div class="product">
+            <div class="img__container">
+                <!-- Yeh new arrival me 1st wali hai -->
+              <img src="images/WhatsApp Image 2021-05-25 at 1.58.41 AM.jpeg" alt="" />
+            </div>
+            <div class="product__bottom">
+              <div class="rating">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+              </div>
+              <h3>AURA Ares</h3>
+              <a href="pages/pg-1.html" target="_blank">Order Now</a>
+            </div>
+          </div>
+          <div class="product">
+            <div class="img__container">
+                <!-- Yeh new arrival me 2nd wali hai -->
+              <img src="./images/WhatsApp Image 2021-05-25 at 1.52.47 AM.jpeg" alt="" />
+            </div>
+            <div class="product__bottom">
+              <div class="rating">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+              </div>
+              <h3>AURA ERA</h3>
+              <a href="pages/pg-2.html" target="_blank">Order Now</a>
+            </div>
+          </div>
+          <div class="product">
+            <div class="img__container">
+                <!-- Yeh new arrival me 3rd wali hai -->
+              <img src="./images/WhatsApp Image 2021-05-25 at 1.53.31 AM.jpeg" alt="">
+            </div>
+            <div class="product__bottom">
+              <div class="rating">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+              </div>
+              <h3>AURA LUXURY</h3>
+              <a href="pages/pg-3.html" target="_blank">Order Now</a>
+            </div>
+          </div>
+          <div class="product">
+            <div class="img__container">
+                <!-- Yeh new arrival me 4th wali hai -->
+              <img src="./images/WhatsApp Image 2021-05-25 at 1.54.39 AM (1).jpeg" alt="" />
+            </div>
+            <div class="product__bottom">
+              <div class="rating">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                </span>
+              </div>
+              <h3>AURA CLASSY</h3>
+              <a href="pages/pg-4.html" target="_blank">Order Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cart Slide -->
+    <section class="cart__slide">
+      <div class="arrival__slide container">
+        <div class="glide" id="glide1">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class="glide__slide">
+                <div class="arrival">
+                  <div class="cart__like">
+                    <div class="image__holder">
+                      <img src="./images/WhatsApp Image 2021-05-25 at 1.53.31 AM.jpeg" alt="" />
+                    </div>
+                    <div class="cart__details">
+                      <h1>AURA GLAMOUR</h1>
+                      <p>
+                        Longiness Conquest 29.5mm Ladies Watch L3.380.4.87.6
+                      </p>
+                      <div class="rating">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                      </div>
+                      <!--div class="colors">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div!-->
+                      <div class="btn__group">
+                        <a href="page.html">
+                        <button>Buy Now</button>
+                      </a>
+                        <button>$15</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="glide__slide">
+                <div class="arrival">
+                  <div class="cart__like">
+                    <div class="image__holder">
+                      <img src="./images/WhatsApp Image 2021-05-25 at 1.54.39 AM (1).jpeg" alt="" />
+                    </div>
+                    <div class="cart__details">
+                      <h1>AURA ARES</h1>
+                      <p>
+                        Unisex Watch Snooz (44 mm) (44 mm)
+                      </p>
+                      <div class="rating">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                      </div>
+                      <!--div class="colors">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div!-->
+                      <div class="btn__group">
+                        <a href="page.html">
+                        <button>Buy Now</button>
+                        </a>
+                        <button>$15</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="glide__slide">
+                <div class="arrival">
+                  <div class="cart__like">
+                    <div class="image__holder">
+                      <img src="./images/WhatsApp Image 2021-05-25 at 2.00.16 AM.jpeg" alt="" />
+                    </div>
+                    <div class="cart__details">
+                      <h1>AURA LUXURY</h1>
+                      <p>
+                        Aura Mens Brooklyn Bridge Black Dial Leather Watch-One Size 
+                      </p>
+                      <div class="rating">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                      </div>
+                      <!--div class="colors">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div!-->
+                      <div class="btn__group">
+                        <a href="page.html">
+                        <button>Buy Now</button>
+                        </a>
+                        <button>$15</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="glide__slide">
+                <div class="arrival">
+                  <div class="cart__like">
+                    <div class="image__holder">
+                      <img src="./images/WhatsApp Image 2021-05-25 at 2.02.36 AM.jpeg" alt="" />
+                    </div>
+                    <div class="cart__details">
+                      <h1>AURA CLASSY</h1>
+                      <p>
+                        Heritor Automatic Aura Gold & Black Leather Watches 44 mm-Black
+                      </p>
+                      <div class="rating">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"/></svg>
+
+                        </span>
+                      </div>
+                      <!--div class="colors">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div!-->
+                      <div class="btn__group">
+                        <a href="page.html">
+                        <button>Buy</button>
+                      </a>
+                        <button>$15</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Arrows -->
+          <div class="glide__arrows" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+              prev
+            </button>
+            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+              next
+            </button>
+          </div>
+
+          <!-- Thumbnails -->
+          <div class="glide__bullets" data-glide-el="controls[nav]">
+            <button class="glide__bullet" data-glide-dir="=0">
+              <div class="thumbnail">
+                <img src="./images/WhatsApp Image 2021-05-25 at 1.53.31 AM.jpeg" alt="" />
+              </div>
+            </button>
+
+            <button class="glide__bullet" data-glide-dir="=1">
+              <div class="thumbnail">
+                <img src="./images/WhatsApp Image 2021-05-25 at 1.54.39 AM (1).jpeg" alt="" />
+              </div>
+            </button>
+
+            <button class="glide__bullet" data-glide-dir="=2">
+              <div class="thumbnail">
+                <img src="./images/WhatsApp Image 2021-05-25 at 2.00.16 AM.jpeg" alt="" />
+              </div>
+            </button>
+
+            <button class="glide__bullet" data-glide-dir="=3">
+              <div class="thumbnail">
+                <img src="./images/WhatsApp Image 2021-05-25 at 2.02.36 AM.jpeg" alt="" />
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Offer Banner -->
+    <section class="section special__offer">
+      <div class="offer__container">
+        <h1>SPECIAL OFFER</h1>
+        <p>Special Offer Discount valid for Only this Week</p>
+        <a href="#">SHOP NOW</a>
+      </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="section featured" id="featured">
+      <div class="featured__container container">
+        <div class="title">
+          <h1 class="primary__title">Featured Products</h1>
+        </div>
+
+        <div class="featured__center">
+          <div class="product">
+            <div class="img__container">
+              <img src="./images/WhatsApp Image 2021-05-25 at 2.00.16 AM.jpeg" alt="" />
+            </div>
+            <div class="product__bottom">
+              <div class="rating">
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                  </svg>
+                </span>
+              </div>
+              <h3>Aura Aeres</h3>
+              <a href="page.html" target="_blank">SEE ALL</a>
+            </div>
+          </div>
+          <div class="product">
+            <div class="img__container">
+              <img src="./images/WhatsApp Image 2021-05-25 at 2.05.16 AM.jpeg" alt="" />
+            </div>
+            <div class="product__bottom">
+              <div class="rating">
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                  </svg>
+                </span>
+              </div>
+              <h3>Aura Era</h3>
+              <a href="page.html" target="_blank">SEE ALL</a>
+            </div>
+          </div>
+          <div class="product">
+            <div class="img__container">
+              <img src="./images/WhatsApp Image 2021-05-25 at 2.02.36 AM.jpeg" alt="" />
+            </div>
+            <div class="product__bottom">
+              <div class="rating">
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                  </svg>
+                </span>
+              </div>
+              <h3>Aura Luxury</h3>
+              <a href="page.html" target="_blank">SEE ALL</a>
+            </div>
+          </div>
+          <div class="product">
+            <div class="img__container">
+              <img src="./images/WhatsApp Image 2021-05-25 at 1.54.39 AM.jpeg" alt="" />
+            </div>
+            <div class="product__bottom">
+              <div class="rating">
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                  </svg>
+                </span>
+              </div>
+              <h3>Aura Classy</h3>
+              <a href="page.html" target="_blank">SEE ALL</a>
+            </div>
+          </div>
+          <div class="product">
+            <div class="img__container">
+              <img src="./images/WhatsApp Image 2021-05-21 at 11.56.36 PM.jpeg" alt="" />
+            </div>
+            <div class="product__bottom">
+              <div class="rating">
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                  </svg>
+                </span>
+              </div>
+              <h3>Aura Azure</h3>
+              <a href="page2.html" target="_blank">SEE ALL</a>
+            </div>
+          </div>
+          <div class="product">
+            <div class="img__container">
+              <img src="./images/WhatsApp Image 2021-05-25 at 1.54.13 AM.jpeg" alt="" />
+            </div>
+            <div class="product__bottom">
+              <div class="rating">
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                  </svg>
+                </span>
+              </div>
+              <h3>Aura Fasion</h3>
+              <a href="page2.html" target="_blank">SEE ALL</a>
+            </div>
+          </div>
+          <div class="product">
+            <div class="img__container">
+              <img src="./images/WhatsApp Image 2021-05-25 at 1.53.50 AM.jpeg" alt="" />
+            </div>
+            <div class="product__bottom">
+              <div class="rating">
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                  </svg>
+                </span>
+              </div>
+              <h3>Aura Flex</h3>
+              <a href="page2.html" target="_blank">SEE ALL</a>
+            </div>
+          </div>
+          <div class="product">
+            <div class="img__container">
+              <img src="./images/WhatsApp Image 2021-05-25 at 1.52.47 AM.jpeg" alt="" />
+            </div>
+            <div class="product__bottom">
+              <div class="rating">
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                </span>
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                  </svg>
+                </span>
+              </div>
+              <h3>Aura Attitude</h3>
+              <a href="page2.html" target="_blank">SEE ALL</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section class="section blog" id="blog">
+      <div class="blog__container container">
+        <div class="title">
+          <h1 class="primary__title">Latest News</h1>
+        </div>
+
+        <div class="blog__center">
+          <div class="blog__box">
+            <div class="img__cover">
+              <img src="./images/farhad humayun.jpeg" alt="" />
+            </div>
+            <div class="box__content">
+              <h2>Pakistani musician Farhad Humayun passes away...</h2>
+              <a href="#">Read more</a>
+            </div>
+          </div>
+
+          <div class="blog__box">
+            <div class="img__cover">
+              <img src="./images/imran khan.jpg" alt="" />
+            </div>
+            <div class="box__content">
+              <h2>PM Imran Khan to approve new auto policy today...</h2>
+              <a href="#">Read more</a>
+            </div>
+          </div>
+
+          <div class="blog__box">
+            <div class="img__cover">
+              <img src="./images/covid 19.jpg" alt="" />
+            </div>
+            <div class="box__content">
+              <h2>Pakistan reaches 10m covid 19 vaccine...</h2>
+              <a href="#">Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section newsletter" id="newsletter">
+      <div class="newsletter__container container">
+        <div class="title">
+          <h1 class="primary__title">Queries</h1>
+        </div>
+
+        <div class="newsletter__center">
+          <div class="newsletter__box">
+            <h2>Ask Anything</h2>
+            <p>
+              Ask a question and get your answer in minutes 
+            </p>
+          </div>
+
+          <div class="newsletter__box">
+            <form action="#">
+              <input type="email" placeholder="Yes I Am Listening.." />
+              <button>ASK</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="section footer">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer-top__box">
+            <h3>EXTRAS</h3>
+            <a href="#">Brands</a>
+            <a href="#">Gift Certificates</a>
+            <a href="#">Affiliate</a>
+            <a href="#">Specials</a>
+            <a href="#">Site Map</a>
+          </div>
+          <div class="footer-top__box">
+            <h3>INFORMATION</h3>
+            <a href="Footer/about us.html">About Us</a>
+            <a href="Footer/privacy policy.html">Privacy Policy</a>
+            <a href="Footer/terms.html">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Site Map</a>
+          </div>
+          <div class="footer-top__box">
+            <h3>OFFICIAL CHANNELS</h3>
+            <a href="#">FACEBOOK</a>
+            <a href="#">YOUTUBE</a>
+            <a href="#">TWITTER</a>
+            <a href="#">INSTAGRAM</a>
+            <a href="#">PINTEREST</a>
+          </div>
+          <div class="footer-top__box">
+            <h3>CONTACT US</h3>
+            <div>
+              <span>
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-location"></use>
+                </svg>
+              </span>
+              43 Dream House, Dreammy street, 7131 Dreamville, USA
+            </div>
+            <div>
+              <span>
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-envelop"></use>
+                </svg>
+              </span>
+              aurawatches@gmail.com
+            </div>
+            <div>
+              <span>
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-phone"></use>
+                </svg>
+              </span>
+              456-456-4512
+            </div>
+            <div>
+              <span>
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-paperplane"></use>
+                </svg>
+              </span>
+              Dream City, USA
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+  </main>
+
+  <!-- Glidejs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+
+  <!-- Custom Script -->
+  <script src="./js/slider.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
